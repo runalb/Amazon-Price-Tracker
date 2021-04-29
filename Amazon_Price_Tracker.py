@@ -27,20 +27,20 @@ class Product():
         return self.name
 
 
-'''
-    def get_product_price():
-        price_tag = soup.find('span', id ='priceblock_ourprice')
-        if price_tag is None:
-            price_tag = soup.find('span', id ='priceblock_dealprice')
 
-        price_str = price_tag.text.strip()
-        price_str = price_str.replace(",", "").replace("₹", "").strip()
-        price = float(price_str)
-        return price
+    def get_product_price(self):
+        self.price_tag = self.soup.find('span', id ='priceblock_ourprice')
+        if self.price_tag is None:
+            self.price_tag = self.soup.find('span', id ='priceblock_dealprice')
+
+        self.price_str = self.price_tag.text.strip()
+        self.price_str = self.price_str.replace(",", "").replace("₹", "").strip()
+        self.price = float(self.price_str)
+        return self.price
 
 
     
-
+'''
     def check_product_price_with_your_price(product_p,your_p):
         if product_p < your_p:
             print("****")
@@ -96,3 +96,4 @@ print()
 
 obj1.get_product_page()
 print(obj1.get_product_name())
+print(obj1.get_product_price())
