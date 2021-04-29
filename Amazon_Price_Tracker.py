@@ -52,9 +52,9 @@ class Product():
             print("****")
 
         elif self.price <= self.your_price:
-            print("Price: {} - Same as your price : {}".format(self.price,self.your_price))
+            print("Price: {} - Same as your price: {}".format(self.price,self.your_price))
         else:
-            print("Price: {} - Higher than your price : {}".format(self.price,self.your_price))
+            print("Price: {} - Higher than your price: {}".format(self.price,self.your_price))
 
 
 
