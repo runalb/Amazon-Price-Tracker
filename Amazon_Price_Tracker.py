@@ -33,16 +33,14 @@ def send_mail():
     server.login('youremail@gmail.com', 'password')
 
 
-    subject = 'Price Fell Down'
+    subject = 'Amazon-Price-Tracker: Price Fell Down'
     body = "Check the amazon link {}".format(url)
 
+    #-------- WOrk on mail content------
     msg = f"Subject: {subject}\n\n{subject}{body}"
 
     server.sendmail('youremail@gmail.com.com','reciver@gmail.com',msg)
 
-    # print a message to check if the email has been sent
-    print('Hey Email has been sent')
-    # quit the server
     server.quit()
 
 
