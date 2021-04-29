@@ -40,18 +40,19 @@ class Product():
 
 
     
-'''
-    def check_product_price_with_your_price(product_p,your_p):
-        if product_p < your_p:
+    # work more on this for send email
+    def check_product_price_with_your_price(self):
+
+        if self.price < self.your_price:
             print("****")
-            print("Price: {} - Less than your price: {}".format(product_p,your_p))
+            print("Price: {} - Less than your price: {}".format(self.price,self.your_price))
             #send_mail()
             print("****")
 
-        elif product_p <= your_p:
-            print("Price: {} - Same as your price : {}".format(product_p,your_p))
+        elif self.price <= self.your_price:
+            print("Price: {} - Same as your price : {}".format(self.price,self.your_price))
         else:
-            print("Price: {} - Higher than your price : {}".format(product_p,your_p))
+            print("Price: {} - Higher than your price : {}".format(self.price,self.your_price))
             
         
 
@@ -60,7 +61,7 @@ class Product():
    
 
 
-'''
+
 
 sender_email = "ENTER SENDER EMAIL-ID"
 sender_email_password = "ENTER SENDER EMAIL-ID PASSWORD"
@@ -83,7 +84,7 @@ def
 #obj = Product(url,your_price,email_send_to)
 
 obj1 = Product("https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/",
-               13499,
+               11499,
                "hello.runalb@gmail.com")
 
 
@@ -97,3 +98,4 @@ print()
 obj1.get_product_page()
 print(obj1.get_product_name())
 print(obj1.get_product_price())
+obj1.check_product_price_with_your_price()
