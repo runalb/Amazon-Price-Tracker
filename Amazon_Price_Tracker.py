@@ -50,11 +50,11 @@ def send_mail():
 
 
 
-def check_product_price_with_your_price(p_product,p_your):
-    if p_product < p_your:
+def check_product_price_with_your_price(product_p,your_p):
+    if product_p < your_p:
         print("Less")
         send_mail()
-    elif p_product <= p_your:
+    elif product_p <= your_p:
         print("same")
     else:
         print("high")
