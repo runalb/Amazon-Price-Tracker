@@ -32,14 +32,18 @@ def send_mail():
     server.starttls()
     server.login(sender_email, sender_email_password)
 
-
-    subject = 'Amazon-Price-Tracker: Price Fell Down'
-    body = "Check the amazon link {}".format(url)
-
     #-------- WOrk on mail content------
-    msg = f"Subject: {subject}\n\n{subject}{body}"
+
+    subject = 'Amazon-Price-Tracker: Price Fell Down!'
+    #body reaming
+    body = "Price Fell Down!\n\nYour amazon product link:\n\n {}".format(url)
+
+    msg = f"Subject: {subject}\n\n{body}"
+
+
 
     server.sendmail(sender_email,receiver_email,msg)
+    print("Email send")
 
     server.quit()
 
@@ -63,13 +67,13 @@ def check_product_price_with_your_price(p_product,p_your):
 your_price = 14499
 url = "https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/ref=sr_1_2"
 
-sender_email = "SENDER EMAIL ID"
-sender_email_password = " SENDER EMAIL PASSWORD"
-receiver_email = "RECEIVER EMAIL ID"
+sender_email =
+sender_email_password =
+receiver_email =
 
 while(True):
     product_price = get_product_price(url)
     check_product_price_with_your_price(product_price,your_price)
-    time.sleep(5)
+    time.sleep(50000)
 
 
