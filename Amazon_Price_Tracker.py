@@ -19,7 +19,6 @@ class Product():
         self.req = requests.get(self.url, headers=self.headers)
         self.soup = BeautifulSoup(self.req.content, 'html.parser')
 
-        #print(self.soup)
 
 
     def get_product_name(self):
