@@ -4,22 +4,24 @@ import smtplib
 import time
 
 class Product():
-    def __init__(self,url,your_price,email,email_pwd,email_send_to):
+    def __init__(self,url,your_price,email_send_to):
         self.url = url
         self.your_price = your_price
-        self.email = email
-        self.email_pwd = email_pwd
+        #self.email = email
+        #self.email_pwd = email_pwd
         self.email_send_to = email_send_to
 
-
-    def get_product_page(self.url):
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-
-        req = requests.get(self.url, headers=headers)
-        global soup
-        soup = BeautifulSoup(req.content, 'html.parser')
+        #same for all check this later to make common - class variable
+        self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
 
+    def get_product_page(self):
+        self.req = requests.get(self.url, headers=self.headers)
+        self.soup = BeautifulSoup(self.req.content, 'html.parser')
+
+        #print(self.soup)
+
+'''
 
     def get_product_name():
         product_name_tag = soup.find("span", class_="product-title-word-break")
@@ -39,29 +41,7 @@ class Product():
         return price
 
 
-    def send_mail():
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.ehlo()
-        server.login(sender_email, sender_email_password)
-
-        subject = 'Amazon-Price-Tracker: Price Fell Down For Your Product!'
-
-        body = '''Price Fell Down For Your Product!
-        \n\nProduct Name:
-        {}
-        \n\nCurrent Price: {}
-        \n\nBuy link:
-        {}
-        '''.format(product_name.encode(),product_price,url)
-
-        msg = f"Subject: {subject}\n\n{body}"
-
-        server.sendmail(sender_email,receiver_email,msg)
-        print("Email send")
-
-        server.quit()
-
+    
 
     def check_product_price_with_your_price(product_p,your_p):
         if product_p < your_p:
@@ -77,17 +57,15 @@ class Product():
 
 
 
-    # ENTER INT NO. HERE
-    your_price = 14499
-
-    url = "ENTER PRODUCT URL"
-
-    sender_email = "ENTER SENDER EMAIL-ID"
-    sender_email_password = "ENTER SENDER EMAIL-ID PASSWORD"
-    receiver_email = "ENTER RECEIVERS EMAIL-ID"
+   
 
 
+'''
 
+sender_email = "ENTER SENDER EMAIL-ID"
+sender_email_password = "ENTER SENDER EMAIL-ID PASSWORD"
+
+'''
 while(True):
     get_product_page(url)
 
@@ -100,3 +78,18 @@ while(True):
     time.sleep(60 * 60 * 12) #12h sleep
 
 
+'''
+
+#obj = Product(url,your_price,email_send_to)
+
+obj1 = Product("https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/",
+               13499,
+               "hello.runalb@gmail.com")
+
+
+
+print(obj1.url)
+print(obj1.your_price)
+print(obj1.email_send_to)
+
+obj1.get_product_page()
