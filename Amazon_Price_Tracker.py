@@ -87,6 +87,7 @@ class Product():
 
 
 
+
    
 
 
@@ -95,13 +96,6 @@ class Product():
 
 
 '''
-def
-    get_product_page(url)
-
-    product_name = get_product_name()
-    product_price = get_product_price()
-
-    check_product_price_with_your_price(product_price,your_price)
 
     # sec x min x hours
     time.sleep(60 * 60 * 12) #12h sleep
@@ -109,23 +103,20 @@ def
 
 '''
 
-#obj = Product(url,your_price,email_send_to)
 
-obj1 = Product("https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/",
-               16499,
-               "hello.runalb@gmail.com")
+if __name__ == '__main__':
+
+    # object format:
+    # obj = Product(url,your_price,email_send_to)
+
+    P1 = Product("https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/",
+                   16499,
+                   "hello.runalb@gmail.com")
+
+    while(True):
+        P1.get_product_page()
+        P1.get_product_name()
+        P1.get_product_price()
+        P1.check_product_price_with_your_price()
 
 
-
-print(obj1.url)
-print(obj1.your_price)
-print(obj1.email_send_to)
-
-print()
-
-obj1.get_product_page()
-print(obj1.get_product_name())
-print(obj1.get_product_price())
-obj1.check_product_price_with_your_price()
-
-#obj1.send_mail()
