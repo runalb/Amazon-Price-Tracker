@@ -70,8 +70,7 @@ class Product():
         self.body = '''Price Fell Down For Your Product!
         \n\nProduct Name:
         {}
-        \n\nCurrent Price: 
-                {}
+        \n\nCurrent Price:  {}
         \n\nBuy link:
         {}
             
