@@ -98,6 +98,7 @@ while(True):
 
     check_product_price_with_your_price(product_price,your_price)
 
-    time.sleep(50000)
+    # sec x min x hours
+    time.sleep(60 * 60 * 12) # 12h sleep
 
 
