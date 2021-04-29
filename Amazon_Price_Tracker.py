@@ -25,18 +25,10 @@ def get_product_price():
     if price_tag is None:
         price_tag = soup.find('span', id ='priceblock_dealprice')
 
-
-    #print((price_tag.text))
     price_str = price_tag.text.strip()
-    #print(price_str)
-
     price_str = price_str.replace(",", "").replace("₹", "").strip()
-
     price = float(price_str)
-
     return price
-
-
 
 
 def send_mail():
@@ -44,7 +36,6 @@ def send_mail():
     server.starttls()
     server.ehlo()
     server.login(sender_email, sender_email_password)
-
 
     subject = 'Amazon-Price-Tracker: Price Fell Down For Your Product!'
 
@@ -64,29 +55,28 @@ def send_mail():
     server.quit()
 
 
-
-
 def check_product_price_with_your_price(product_p,your_p):
     if product_p < your_p:
-        print("Less")
-        #send_mail()
+        print("****")
+        print("Price: {} - Less than your price: {}".format(product_p,your_p))
+        send_mail()
+        print("****")
+
     elif product_p <= your_p:
-        print("same")
+        print("Price: {} - Same as your price : {}".format(product_p,your_p))
     else:
-        print("high")
+        print("Price: {} - Higher than your price : {}".format(product_p,your_p))
 
 
 
-
-
-
+# ENTER INT NO. HERE
 your_price = 14499
-url = "https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/ref=sr_1_2"
 
+url = "ENTER PRODUCT URL"
 
-sender_email = ""
-sender_email_password = ""
-receiver_email = ""
+sender_email = "ENTER SENDER EMAIL-ID"
+sender_email_password = "ENTER SENDER EMAIL-ID PASSWORD"
+receiver_email = "ENTER RECEIVERS EMAIL-ID"
 
 
 
@@ -99,6 +89,6 @@ while(True):
     check_product_price_with_your_price(product_price,your_price)
 
     # sec x min x hours
-    time.sleep(60 * 60 * 12) # 12h sleep
+    time.sleep(60 * 60 * 12) #12h sleep
 
 
