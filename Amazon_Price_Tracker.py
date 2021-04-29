@@ -47,14 +47,14 @@ class Product():
 
         if self.price < self.your_price:
             print("****")
-            print("Price: {} - Less than your price: {}".format(self.price,self.your_price))
+            print("Current Price: {} - Less than your price: {}".format(self.price,self.your_price))
             self.send_mail()
             print("****")
 
         elif self.price <= self.your_price:
-            print("Price: {} - Same as your price: {}".format(self.price,self.your_price))
+            print("Current Price: {} - Same as your price: {}".format(self.price,self.your_price))
         else:
-            print("Price: {} - Higher than your price: {}".format(self.price,self.your_price))
+            print("Current Price: {} - Higher than your price: {}".format(self.price,self.your_price))
 
 
 
