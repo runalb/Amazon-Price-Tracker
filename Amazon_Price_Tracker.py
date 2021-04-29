@@ -24,6 +24,15 @@ def get_product_price(url):
     return price
 
 
+def check_product_price_with_your_price(p_product,p_your):
+    if p_product < p_your:
+        print("Less")
+    elif p_product <= p_your:
+        print("same")
+    else:
+        print("high")
+
+
 
 
 your_price = 13499
@@ -31,10 +40,7 @@ url = "https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp
 
 product_price = get_product_price(url)
 
-if product_price < your_price:
-    print("Less")
-elif product_price <= your_price:
-    print("same")
-else:
-    print("high")
+check_product_price_with_your_price(product_price,your_price)
+
+
 
