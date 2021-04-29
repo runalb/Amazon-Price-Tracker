@@ -4,19 +4,22 @@ import smtplib
 import time
 
 class Product():
+
+    __sender_email = ""
+    __sender_email_password = ""
+
+    __headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+
+
     def __init__(self,url,your_price,email_send_to):
         self.url = url
         self.your_price = your_price
-        #self.email = email
-        #self.email_pwd = email_pwd
         self.email_send_to = email_send_to
 
-        #same for all check this later to make common - class variable
-        self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
 
     def get_product_page(self):
-        self.req = requests.get(self.url, headers=self.headers)
+        self.req = requests.get(self.url, headers=Product.__headers)
         self.soup = BeautifulSoup(self.req.content, 'html.parser')
 
 
@@ -60,7 +63,7 @@ class Product():
         self.server = smtplib.SMTP('smtp.gmail.com', 587)
         self.server.starttls()
         self.server.ehlo()
-        self.server.login(sender_email, sender_email_password)
+        self.server.login(Product.__sender_email, Product.__sender_email_password)
 
         self.subject = 'Amazon-Price-Tracker: Price Fell Down For Your Product!'
 
@@ -78,7 +81,7 @@ class Product():
 
         self.msg = f"Subject: {self.subject}\n\n{self.body}"
 
-        self.server.sendmail(sender_email, self.email_send_to, self.msg)
+        self.server.sendmail(Product.__sender_email, self.email_send_to, self.msg)
         print("Email send")
 
         self.server.quit()
@@ -92,8 +95,7 @@ class Product():
 
 
 
-sender_email = ""
-sender_email_password = ""
+
 
 '''
 def
