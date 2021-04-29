@@ -21,15 +21,14 @@ class Product():
 
         #print(self.soup)
 
+
+    def get_product_name(self):
+        self.product_name_tag = self.soup.find("span", class_="product-title-word-break")
+        self.name = self.product_name_tag.text.strip()
+        return self.name
+
+
 '''
-
-    def get_product_name():
-        product_name_tag = soup.find("span", class_="product-title-word-break")
-        name = product_name_tag.text.strip()
-        return name
-
-
-
     def get_product_price():
         price_tag = soup.find('span', id ='priceblock_ourprice')
         if price_tag is None:
@@ -54,6 +53,8 @@ class Product():
             print("Price: {} - Same as your price : {}".format(product_p,your_p))
         else:
             print("Price: {} - Higher than your price : {}".format(product_p,your_p))
+            
+        
 
 
 
@@ -66,7 +67,7 @@ sender_email = "ENTER SENDER EMAIL-ID"
 sender_email_password = "ENTER SENDER EMAIL-ID PASSWORD"
 
 '''
-while(True):
+def
     get_product_page(url)
 
     product_name = get_product_name()
@@ -92,4 +93,7 @@ print(obj1.url)
 print(obj1.your_price)
 print(obj1.email_send_to)
 
+print()
+
 obj1.get_product_page()
+print(obj1.get_product_name())
