@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
-#import lxml
+import smtplib
+import time
 
 def get_product_price(url):
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
@@ -24,9 +25,33 @@ def get_product_price(url):
     return price
 
 
+
+
+def send_mail():
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login('youremail@gmail.com', 'password')
+
+
+    subject = 'Price Fell Down'
+    body = "Check the amazon link {}".format(url)
+
+    msg = f"Subject: {subject}\n\n{subject}{body}"
+
+    server.sendmail('youremail@gmail.com.com','reciver@gmail.com',msg)
+
+    # print a message to check if the email has been sent
+    print('Hey Email has been sent')
+    # quit the server
+    server.quit()
+
+
+
+
 def check_product_price_with_your_price(p_product,p_your):
     if p_product < p_your:
         print("Less")
+        send_mail()
     elif p_product <= p_your:
         print("same")
     else:
@@ -35,7 +60,11 @@ def check_product_price_with_your_price(p_product,p_your):
 
 
 
-your_price = 13499
+
+
+
+
+your_price = 14499
 url = "https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/ref=sr_1_2"
 
 product_price = get_product_price(url)
