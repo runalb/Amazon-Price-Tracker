@@ -49,7 +49,7 @@ class Product():
         if self.price < self.your_price:
             print("****")
             print("Price: {} - Less than your price: {}".format(self.price,self.your_price))
-            #send_mail()
+            self.send_mail()
             print("****")
 
         elif self.price <= self.your_price:
@@ -115,7 +115,7 @@ def
 #obj = Product(url,your_price,email_send_to)
 
 obj1 = Product("https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/",
-               11499,
+               16499,
                "hello.runalb@gmail.com")
 
 
@@ -131,4 +131,4 @@ print(obj1.get_product_name())
 print(obj1.get_product_price())
 obj1.check_product_price_with_your_price()
 
-obj1.send_mail()
+#obj1.send_mail()
