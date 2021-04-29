@@ -87,36 +87,31 @@ class Product():
 
 
 
-
-   
-
-
-
-
-
-
-'''
-
-    # sec x min x hours
-    time.sleep(60 * 60 * 12) #12h sleep
-
-
-'''
-
-
 if __name__ == '__main__':
 
     # object format:
     # obj = Product(url,your_price,email_send_to)
 
     P1 = Product("https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/",
-                   16499,
-                   "hello.runalb@gmail.com")
+                 13499,
+                 "hello.runalb@gmail.com")
+
+    P2 = Product("https://www.amazon.in/dp/B089MTW733/",
+                 54999,
+                 "hello.runalb@gmail.com")
+
+
+    def amazon_price_tracker(*args):
+        print(args)
+        for product in args:
+            product.get_product_page()
+            print(product.get_product_name())
+            print(product.get_product_price())
+            product.check_product_price_with_your_price()
 
     while(True):
-        P1.get_product_page()
-        P1.get_product_name()
-        P1.get_product_price()
-        P1.check_product_price_with_your_price()
+        amazon_price_tracker(P1,P2)
+        # sec x min x hours
+        time.sleep(60 * 60 * 12)  # 12h sleep
 
 
