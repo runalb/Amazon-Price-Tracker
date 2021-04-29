@@ -83,8 +83,6 @@ class Product():
 
         self.server.quit()
             
-        
-
 
 
 if __name__ == '__main__':
@@ -113,5 +111,3 @@ if __name__ == '__main__':
         amazon_price_tracker(P1,P2)
         # sec x min x hours
         time.sleep(60 * 60 * 12)  # 12h sleep
-
-
