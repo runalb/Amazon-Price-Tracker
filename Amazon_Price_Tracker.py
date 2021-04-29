@@ -30,7 +30,7 @@ def get_product_price(url):
 def send_mail():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login('youremail@gmail.com', 'password')
+    server.login(sender_email, sender_email_password)
 
 
     subject = 'Amazon-Price-Tracker: Price Fell Down'
@@ -39,7 +39,7 @@ def send_mail():
     #-------- WOrk on mail content------
     msg = f"Subject: {subject}\n\n{subject}{body}"
 
-    server.sendmail('youremail@gmail.com.com','reciver@gmail.com',msg)
+    server.sendmail(sender_email,receiver_email,msg)
 
     server.quit()
 
@@ -60,14 +60,16 @@ def check_product_price_with_your_price(p_product,p_your):
 
 
 
-
-
 your_price = 14499
 url = "https://www.amazon.in/Amazfit-AMOLED-Display-Monitor-Bluetooth-Storage/dp/B08XW3TKYR/ref=sr_1_2"
 
-product_price = get_product_price(url)
+sender_email = "SENDER EMAIL ID"
+sender_email_password = " SENDER EMAIL PASSWORD"
+receiver_email = "RECEIVER EMAIL ID"
 
-check_product_price_with_your_price(product_price,your_price)
-
+while(True):
+    product_price = get_product_price(url)
+    check_product_price_with_your_price(product_price,your_price)
+    time.sleep(5)
 
 
