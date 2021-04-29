@@ -102,12 +102,12 @@ if __name__ == '__main__':
 
 
     def amazon_price_tracker(*args):
-        print(args)
         for product in args:
             product.get_product_page()
             print(product.get_product_name())
-            print(product.get_product_price())
+            product.get_product_price()
             product.check_product_price_with_your_price()
+            print()
 
     while(True):
         amazon_price_tracker(P1,P2)
